@@ -91,7 +91,7 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "odometrie_node");
 
   ros::NodeHandle n;
-  
+
   ros::Subscriber sub = n.subscribe("diagnostics", 1, get_yaw_pitch_roll);
   ros::Subscriber sub1 = n.subscribe("tof", 1, get_tof);
   ros::Subscriber sub2 = n.subscribe("flow_sensor", 1, get_flow_sensor_data);
@@ -108,8 +108,8 @@ int main(int argc, char **argv) {
       double distY = calculation_distance_Y(Dy, tof);
       double errY = calculation_error_Y(R);
       std::cout << errY <<std::endl;
-      double distance_moved_Y = real_distance_y(distY, errY);
-      std::cout << distance_moved_XY<<std::endl;
+      double distance_moved_Y = real_distance_Y(distY, errY);
+      std::cout << distance_moved_Y<<std::endl;
     }
   return 0;
 }
